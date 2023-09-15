@@ -12,6 +12,12 @@ set(EXECUTABLE_OUTPUT_PATH bin)
 set(LIBRARY_OUTPUT_PATH lib)
 set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
 
+set(CMAKE_CXX_STANDARD 17)
+
+set(${CMAKE_CXX_FLAGS}  ${CMAKE_CXX_FLAGS} "-g")
+
+set(Pangolin_DIR "/home/yicheng/Libraries/Install/Pangolin/0.5/lib/cmake/Pangolin")
+
 # required libraries
 find_package(SuiteParse REQUIRED)
 find_package(Eigen3 REQUIRED)
@@ -22,6 +28,7 @@ find_package(LibZip QUIET)
 find_package(Pangolin 0.2 QUIET)
 find_package(OpenCV QUIET)
 
+message(STATUS "Pangolin: " ${Pangolin_INCLUDE_DIRS})
 # flags
 add_definitions("-DENABLE_SSE")
 set(CMAKE_CXX_FLAGS
